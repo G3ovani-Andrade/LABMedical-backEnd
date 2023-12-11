@@ -11,12 +11,11 @@ import java.util.UUID;
 
 @MappedSuperclass
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pessoa {
+public abstract class Pessoa {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
 
     @Column(length = 100)
