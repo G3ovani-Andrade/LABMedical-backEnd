@@ -5,19 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UUID;
 
-import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnderecoEntity {
+public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(nullable = false,length = 9)
@@ -38,7 +37,5 @@ public class EnderecoEntity {
     private String pontoReferencia;
 
     @ManyToOne
-    @JoinColumn(name="pessoa_id",nullable = false)
-    private List<Pessoa> pessoas;
-
+    private Paciente paciente;
 }
